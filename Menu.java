@@ -48,7 +48,7 @@ public class Menu {
                     String senha2 = ID.nextLine();
 
                     int contador = 1;
-
+                    
                     if(login.equals((login = login1)) && senha.equals(senha = senha2) && contador <= 2){
                         System.out.printf("Usuário %s logado com sucesso.", login);
 
