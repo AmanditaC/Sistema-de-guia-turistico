@@ -36,14 +36,14 @@ public class Menu {
                 
                     System.out.println("senha : ");
                     String senha = ID.nextLine();
-                   
+                
                     System.out.println( "Login criado com sucesso !\n\n");
                     
                     System.out.println("Informe o login : ");
 
                     System.out.println("login : ");
                     String login1 = ID.nextLine();
-                   
+                
                     System.out.println("senha : ");
                     String senha2 = ID.nextLine();
 
@@ -52,13 +52,13 @@ public class Menu {
                     if(login.equals((login = login1)) && senha.equals(senha = senha2) && contador <= 2){
                         System.out.printf("Usuário %s logado com sucesso.", login);
 
-                    
+                        
                     }else{
                         
                         System.out.println("Login ou senha inválidos!");
 
                     }
-                 
+                
                 break;
                 
             case 2:
