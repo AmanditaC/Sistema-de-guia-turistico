@@ -1,12 +1,12 @@
 package ENTIDADES;
 
-public class Pontosturisticos{
+public class PontosTuristicos{
 
     private String Nome_do_Cadastrante;
     private String Nome_do_Local;
     private String Localizacao;
 
-    public Pontosturisticos(String Nome_do_Cadastrante, String Nome_do_Local, String Localizacao){
+    public PontosTuristicos(String Nome_do_Cadastrante, String Nome_do_Local, String Localizacao){
 
         this.Nome_do_Cadastrante = Nome_do_Cadastrante;
         this.Nome_do_Local = Nome_do_Local;

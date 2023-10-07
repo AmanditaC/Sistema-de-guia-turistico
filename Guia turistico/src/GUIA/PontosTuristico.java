@@ -2,11 +2,11 @@ package GUIA;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ENTIDADES.Pontosturisticos;
+import ENTIDADES.PontosTuristicos;
 
 public class PontosTuristico {
     
-    public void cadastrarPonto(ArrayList<Pontosturisticos> ListasDePontosTuristicos){
+    public void cadastrarPonto(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
         Scanner ler = new Scanner(System.in);
 
@@ -19,14 +19,14 @@ public class PontosTuristico {
         System.out.println("Em que lugar fica localizado: ");
         String Localizacao = ler.nextLine();
 
-        Pontosturisticos cadastraPontosTuristicos = new Pontosturisticos(Nome_do_Cadastrante, Nome_do_Local, Localizacao);
+        PontosTuristicos cadastraPontosTuristicos = new PontosTuristicos(Nome_do_Cadastrante, Nome_do_Local, Localizacao);
 
         ListasDePontosTuristicos.add(cadastraPontosTuristicos);
 
         ler.close();
     }
 
-    public void VisualizarCadastro(Pontosturisticos pontoTuristicoRecente){
+    public void VisualizarCadastro(PontosTuristicos pontoTuristicoRecente){
 
         if(pontoTuristicoRecente != null){
             System.out.println("Detalhe do recente cadastramento:");
@@ -36,9 +36,9 @@ public class PontosTuristico {
         }
     }
 
-    public void EditarCadastro(ArrayList<Pontosturisticos> ListasDePontosTuristicos, String NomeEditar){
+    public void EditarCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos, String NomeEditar){
 
-        for(Pontosturisticos Lugar : ListasDePontosTuristicos){
+        for(PontosTuristicos Lugar : ListasDePontosTuristicos){
 
             if(Lugar.getNome_do_Local().equals(NomeEditar)){
                 Lugar.getLocalizacao();
@@ -49,9 +49,9 @@ public class PontosTuristico {
         System.out.println("Não foi possível localizar o Lugar!!");
     }
 
-    public void RemoverCadastro(ArrayList<Pontosturisticos> ListasDePontosTuristicos, String NomeRemover){
+    public void RemoverCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos, String NomeRemover){
 
-        for(Pontosturisticos Lugar : ListasDePontosTuristicos){
+        for(PontosTuristicos Lugar : ListasDePontosTuristicos){
             
             if(Lugar.getNome_do_Local().equals(NomeRemover)){
                 ListasDePontosTuristicos.remove(Lugar);
