@@ -44,23 +44,6 @@ public class Estabelecimentos {
         }
     }
 
-    /*public static void EditarCadastro(ArrayList <Estabelecimentos> ListaDeEstabelecimentos, String NomeEditar){
-
-        for(Estabelecimentos negocios : ListaDeEstabelecimentos){
-
-            if(negocios.getNome_do_estabelecimento().equals(NomeEditar)){
-                
-                negocios.setLocalizacao(Localizacao);
-                negocios.setTipo(Tipo);
-                negocios.setFazer_reseva(Fazer_reseva);
-                negocios.setNumero_de_contato(Numero_de_contato);
-
-                System.out.println("Estabelecimento editado com sucesso!!\n");
-            }
-        }
-        System.out.println("Nao foi possivel encontrar o estabelecimento mencionado!");
-    }*/
-
     public static void EditarCadastro(ArrayList <Estabelecimento> ListaDeEstabelecimentos, String NomeEditar, String novaLocalizacao, String novoTipo, boolean novaFazer_reserva, int novoNumero_de_contato){
 
         for(Estabelecimento negocios : ListaDeEstabelecimentos){
