@@ -1,7 +1,11 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import ENTIDADES.Estabelecimento;
+import ENTIDADES.PontosTuristicos;
+import ENTIDADES.Usuarios;
+import GUIA.Estabelecimentos;
+import GUIA.PontosTuristico;
+import GUIA.Usuario;
 import GUIA.Usuario;
 
 public class Menu {
