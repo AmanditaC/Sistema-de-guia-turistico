@@ -1,82 +1,107 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 import ENTIDADES.Estabelecimento;
 import ENTIDADES.PontosTuristicos;
 import ENTIDADES.Usuarios;
 import GUIA.Estabelecimentos;
-import GUIA.PontosTuristico;
-import GUIA.Usuario;
 import GUIA.Usuario;
 
 public class Menu {
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        // Usuario usuario;
-        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-        boolean voltar = false;
-        int opcao;
-        while (!voltar) {
-        
-            opcao = MenuPrincipal(scanner);
-            
-            switch (opcao) {
-                case 1:
-                    menuLogin(scanner, listaUsuarios);
-                    break;
-                case 2:
-                    break;
-                case 3:
+        Scanner entrada = new Scanner(System.in);
+        ArrayList<Usuarios> listaUsuarios = new ArrayList<>();
+        ArrayList<PontosTuristicos> listaDePontosTuristicos = new ArrayList<>();
+        ArrayList<Estabelecimento> listaEstabelecimento = new ArrayList<>();
 
-                    break;
-                default:
+        while (true) {
+            exibirMenu();
+            int opcao = -1;
+
+            try {
+                if (entrada.hasNextInt()) { // Verifique se há um inteiro disponível
+                    opcao = entrada.nextInt();
+                } else {
+                    System.out.println("Entrada inválida. Por favor, insira um número.");
+                    entrada.nextLine(); // Limpe o buffer
+                    continue;
+                }
+
+                switch (opcao) {
+                    case 1:
+                        Usuario usuario = new Usuario(); // Crie uma instância de Usuario
+                        usuario.cadastrarLogin(listaUsuarios); // Chame o método cadastrarLogin
+                        System.out.println("Deseja cadastrar um Estabelecimento ou ponto turistico? [S/N]");
+                        entrada.nextLine();
+                        String resposta = entrada.nextLine().toUpperCase(); // Leitura da resposta em maiúsculas
+
+                        switch (resposta) {
+                            case "S":
+                                int opcaoCadastro;
+                                do {
+                                    System.out.println("Menu de Cadastro:");
+                                    System.out.println("1. Cadastrar Estabelecimento");
+                                    System.out.println("2. Cadastrar Ponto Turístico");
+                                    System.out.println("3. Voltar ao Menu Principal");
+                                    System.out.print("Escolha uma opção: ");
+                                    opcaoCadastro = entrada.nextInt();
+                                    entrada.nextLine();
+
+                                    switch (opcaoCadastro) {
+                                        case 1:
+                                            Estabelecimentos estabelecimento = new Estabelecimentos();
+                                            estabelecimento.cadastrarEstabelecimento(listaEstabelecimento);
+                                            System.out.println("Deseja editar ou voltar ao menu principal ? ");
+                                            System.out.println("1.Editar cadastro");
+                                            System.out.println("2.Volta ao menu principal");
+                                            entrada.nextLine();
+                                            int resp = entrada.nextInt();
+
+                                            switch (resp) {
+                                                case 1:
+                                                    //estabelecimento.editarEstabelecimento(listaEstabelecimento);
+                                                    break;
+                                                case 2:
+                                                    // Voltar ao menu principal
+                                                    break;
+                                                default:
+                                                    System.out.println("Opção inválida. Tente novamente.");
+                                                    break;
+                                            }
+
+                                        case 2:
+                                            // Chame a função de cadastro de ponto turístico
+                                            break;
+                                        case 3:
+                                            // Voltar ao menu principal
+                                            break;
+                                        default:
+                                            System.out.println("Opção inválida. Tente novamente.");
+                                            break;
+                                    }
+                                } while (opcaoCadastro != 3); // Continua exibindo o menu até que o usuário escolha a opção de voltar
+                                break;
+                            case "N":
+                                // Voltar ao menu principal
+                                break;
+                            default:
+                                System.out.println("Opção inválida. Tente novamente.");
+                                break;
+                        }
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erro ao ler entrada. Certifique-se de inserir os dados corretamente.");
+                entrada.nextLine(); // Limpe o buffer em caso de erro
             }
         }
-    
     }
-        public static int MenuPrincipal(Scanner entrada){
-            System.out.println("Menu:");
-            System.out.println("1. Login");
-            System.out.println("2. Listar estabelecimentos e pontos turisticos");
-            System.out.println("3. Sair");
-            System.out.print("Escolha uma opção: ");
-            
-            return entrada.nextInt(); // trasformando uma string em int
-        }
-        public static void menuLogin(Scanner entrada, ArrayList<Usuario> listaUsuarios) {
-            limparBuffer(entrada);
 
-            System.out.println("Menu Login\n");
-            System.out.println("1. Cadastrar Usuário");
-            System.out.println("2. Sair");
-            int opcao = entrada.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.println("Nome: ");
-                    String nome = entrada.next();
-                    System.out.println("E-mail: ");
-                    String email = entrada.next();
-                    System.out.println("Senha: ");
-                    String senha = entrada.next();
-            
-                    Usuario novoUsuario = new Usuario();
-                    listaUsuarios.add(novoUsuario);
-    
-                    System.out.println("Usuário cadastrado com sucesso!");
-                    break;
-                case 2:
-                    return;
-                default:
-                    System.out.println("ERRO\nTente uma opção válida");
-                    break;
-            }
-        
-        }
-
-        private static void limparBuffer(Scanner scanner) {
-        if (scanner.hasNextLine()) {
-            scanner.nextLine();
-        }
+    public static void exibirMenu() {
+        System.out.println("Menu Interativo\n");
+        System.out.println("1.Cadastrar Usuário ");
+        System.out.println("2.Listar todos os pontos turisticos");
+        System.out.println("3. Sair");
+        System.out.print("Escolha uma opção: ");
     }
 }
