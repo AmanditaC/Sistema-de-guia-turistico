@@ -8,14 +8,14 @@ public class Usuario{
 
 public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
         Scanner ler = new Scanner(System.in);
+        Usuarios novoUsuario = new Usuarios(null, null);
 
         System.out.print("Informe seu Email: ");
-        String email = ler.nextLine();
+        novoUsuario.setEmail(ler.nextLine());
         System.out.print("Crie uma Senha: ");
-        String senha = ler.nextLine();
+        novoUsuario.setSenha(ler.nextLine());
 
-        Usuarios cadastraLogin = new Usuarios(email, senha);
-        cadastrarLogin.add(cadastraLogin);
+        cadastrarLogin.add(novoUsuario);
         
         System.out.println("Cadastro realizado com sucesso!\n");
 
@@ -32,27 +32,40 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
         }
     }
 
-    public void EditarCadastroUsuario(ArrayList <Usuarios> UsuarioNovo) {
+    public void EditarCadastroUsuario(ArrayList <Usuarios> cadastrarLogin) {
         Scanner ler = new Scanner(System.in);
-
-        System.out.println("Cadastro de Usuário");
-        System.out.print("Informe seu Email: ");
-        String novoEmail = ler.nextLine();
-
-        System.out.print("Crie uma Senha: ");
-        String novaSenha = ler.nextLine();
-
-        Usuarios novoUsuario = new Usuarios(novoEmail, novaSenha);
-        UsuarioNovo.add(novoUsuario);
-
-        System.out.println("Cadastro realizado com sucesso!\n");
-
     
-        System.out.println("Editando Cadastro de Usuário...");
-        EditarCadastroUsuario(UsuarioNovo);
+        System.out.println("Edição de usuarios");
+        System.out.print("Informe o nome do usuario que deseja editar: ");
+        String nomeDoUsuario = ler.nextLine();
+    
+        // Procurar o usuario na lista com base no nome
+        Usuarios usuarioParaEditar = null;
+        int indiceDoUsuario = -1; // Para armazenar o índice do usuario na lista
+        for (int i = 0; i < cadastrarLogin.size(); i++) {
+            Usuarios user = cadastrarLogin.get(i);
+            if (user != null && user.getEmail() != null && user.getEmail().equals(nomeDoUsuario)) {
 
-        System.out.println("Cadastro de Usuário atualizado com sucesso!");
+                usuarioParaEditar = user;
+                indiceDoUsuario = i;
+                break;
+            }
+        }
 
+        if (usuarioParaEditar != null){
+            System.out.println("Usuario encontrado ! \n Você pode editar as informações a seguir:");
+            System.out.println("Informe o novo email :");
+            usuarioParaEditar.setEmail(ler.nextLine());
+            System.out.println("Informe a nova senha : ");
+            usuarioParaEditar.setSenha(ler.nextLine());
+            
+            Usuario.set(indiceDoUsuario, usuarioParaEditar);
+
+            System.out.println("Cadastro do Usuario atualizado com sucesso!\"");
+            
+        }else{
+            System.out.println("Usuario não encontrado. Verifique o nome do local e tente novamente.");
+        }
     
     }
 
