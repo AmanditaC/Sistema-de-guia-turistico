@@ -84,11 +84,10 @@ public class Menu {
                                             pontosTuristico.cadastrarPonto(listaDePontosTuristicos);
                                             System.out.println("Deseja editar ou voltar ao menu principal ? ");
                                             System.out.println("1.Editar cadastro");
-                                            System.out.println("2. Excluir Ponto turistico");
-                                            System.out.println("3.Volta ao menu principal");
+                                            System.out.println("2.Volta ao menu principal");
                                             entrada.nextLine();
                                             int rap = entrada.nextInt();
-
+                                            
                                             switch (rap) {
                                                 case 1:
                                                     pontosTuristico.EditarCadastro(listaDePontosTuristicos);
@@ -96,17 +95,12 @@ public class Menu {
                                                     pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
                                                     break;
                                                 case 2:
-                                                    pontosTuristico.RemoverCadastro(listaDePontosTuristicos);
-
-                                                break;
-                                                case 3:
                                                     // Voltar ao menu principal
                                                     break;
                                                 default:
                                                     System.out.println("Opção inválida. Tente novamente.");
                                                     break;
                                             }
-                                           
                                             break;
                                         case 3:
                                             // Voltar ao menu principal
@@ -136,9 +130,8 @@ public class Menu {
                          
                          PontosTuristico pontosTuristico = new PontosTuristico();
                          pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
-                         break;
                 }
-                
+            
             } catch (InputMismatchException e) {
                 System.out.println("Erro ao ler entrada. Certifique-se de inserir os dados corretamente.");
                 entrada.nextLine(); // Limpe o buffer em caso de erro
@@ -149,9 +142,8 @@ public class Menu {
     public static void exibirMenu() {
         System.out.println("Menu Interativo\n");
         System.out.println("1.Cadastrar Usuário ");
-        System.out.println("2.Entrar");
-        System.out.println("3.Listar todos os pontos turisticos");
-        System.out.println("4. Sair");
+        System.out.println("2.Listar todos os pontos turisticos");
+        System.out.println("3. Sair");
         System.out.print("Escolha uma opção: ");
     }
 }
