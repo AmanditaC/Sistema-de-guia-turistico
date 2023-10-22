@@ -60,7 +60,9 @@ public class Menu {
 
                                             switch (resp) {
                                                 case 1:
-                                                    estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                                                    estabelecimento.EditarCadastroEstabelecimento(listaEstabelecimentos);
+
+                                                     estabelecimento.VisualizarCadastro(listaEstabelecimentos);
                                                     break;
                                                 case 2:
                                                     // Voltar ao menu principal
@@ -71,7 +73,7 @@ public class Menu {
                                             }
 
                                         case 2:
-                                            PontosTuristicos pontosTuristicos
+                                           
                                             break;
                                         case 3:
                                             // Voltar ao menu principal
@@ -89,8 +91,11 @@ public class Menu {
                                 System.out.println("Opção inválida. Tente novamente.");
                                 break;
                         }
+                        case 2 :
+                         Estabelecimentos estabelecimento = new Estabelecimentos();
+                         estabelecimento.VisualizarCadastro(listaEstabelecimentos);
                 }
-
+            
             } catch (InputMismatchException e) {
                 System.out.println("Erro ao ler entrada. Certifique-se de inserir os dados corretamente.");
                 entrada.nextLine(); // Limpe o buffer em caso de erro
