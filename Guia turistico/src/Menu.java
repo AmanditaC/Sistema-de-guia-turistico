@@ -136,6 +136,7 @@ public class Menu {
                          
                          PontosTuristico pontosTuristico = new PontosTuristico();
                          pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
+                         break;
                 }
                 
             } catch (InputMismatchException e) {
