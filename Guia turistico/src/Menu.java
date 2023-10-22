@@ -118,7 +118,8 @@ public class Menu {
                                 System.out.println("Opção inválida. Tente novamente.");
                                 break;
                         }
-
+                        break;
+                        
                         case 2:
                             Usuario user = new Usuario();
                             user.VisualizarCadastroDeUsuario(listaUsuarios);
