@@ -2,6 +2,8 @@ package GUIA;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ENTIDADES.Estabelecimento;
+import ENTIDADES.PontosTuristicos;
 import ENTIDADES.Usuarios;
 
 public class Usuario{
@@ -112,10 +114,12 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
                 // Por exemplo, você pode exibir um menu e permitir que o usuário escolha ações, como editar ou excluir o cadastro.
                 while (autenticado) {
                     System.out.println("Escolha uma ação:");
-                    System.out.println("1. Visualizar cadastro");
-                    System.out.println("2. Editar cadastro");
-                    System.out.println("3. Excluir cadastro");
-                    System.out.println("4. Sair");
+                    System.out.println("1. Visualizar cadastro do usuario");
+                    System.out.println("2. Cadastrar estabelecimento");
+                    System.out.println("3. Cadastrar Ponto turistico ");
+                    System.out.println("4. Editar cadastro do usuario");
+                    System.out.println("5. Excluir cadastro do usuario");
+                    System.out.println("6. Sair");
 
                     int escolha = ler.nextInt();
                     ler.nextLine(); // Limpar a quebra de linha após a leitura do número
@@ -125,12 +129,81 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
                             VisualizarCadastroDeUsuario(cadastrarLogin);
                             break;
                         case 2:
+                        ArrayList<Estabelecimento> listaEstabelecimentos = new ArrayList<>();
+                        Estabelecimentos estabelecimento = new Estabelecimentos();
+                        Scanner um = new Scanner(System.in);
+                        estabelecimento.cadastrarEstabelecimento(listaEstabelecimentos);
+                        System.out.println("Deseja editar ou voltar ao menu principal ? ");
+                        System.out.println("1.Editar cadastro");
+                        System.out.println("2.Excluir Estabelecimento");
+                        System.out.println("3.Visualizar Estabelecimento");
+                        System.out.println("4.Volta ao menu principal");
+                        um.nextLine();
+                        int resp = um.nextInt();
+
+                        switch (resp) {
+                            case 1:
+                                estabelecimento.EditarCadastroEstabelecimento(listaEstabelecimentos);
+
+                                break;
+                            case 2:
+                                estabelecimento.RemoverCadastro(listaEstabelecimentos);
+
+                                break;
+                            case 3:
+                                estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+
+                            break;
+                            case 4:
+                                // Voltar ao menu principal
+                                break;
+                            default:
+                                System.out.println("Opção inválida. Tente novamente.");
+                                break;
+                        }
+                        break;
+                        case 3:
+                        ArrayList<PontosTuristicos> listaDePontosTuristicos = new ArrayList<>();
+                        PontosTuristico pontosTuristico = new PontosTuristico();
+                        pontosTuristico.cadastrarPonto(listaDePontosTuristicos);
+                        Scanner dois = new Scanner(System.in);
+                        System.out.println("Deseja editar ou voltar ao menu principal ? ");
+                        System.out.println("1.Editar cadastro");
+                        System.out.println("2.Excluir Ponto turistico");
+                        System.out.println("3. Visualizar Ponto turistico");
+                        System.out.println("4.Volta ao menu principal");
+                        dois.nextLine();
+                        int rap = dois.nextInt();
+                        
+                        switch (rap) {
+                            case 1:
+                                pontosTuristico.EditarCadastro(listaDePontosTuristicos);
+
+                                break;
+                            case 2:
+                                pontosTuristico.RemoverCadastro(listaDePontosTuristicos);
+
+                            break;
+                            case 3:
+                            pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
+
+                            break;
+                            case 4:
+                                // Voltar ao menu principal
+                                break;
+                            default:
+                                System.out.println("Opção inválida. Tente novamente.");
+                                break;
+                        }
+                        break;
+
+                        case 4:
                             EditarCadastroUsuario(cadastrarLogin);
                             break;
-                        case 3:
+                        case 5:
                             ExcluiCadastro(cadastrarLogin);
                             break;
-                        case 4:
+                        case 6:
                             autenticado = false; // Sair do loop de ações
                             break;
                         default:

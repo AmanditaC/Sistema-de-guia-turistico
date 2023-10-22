@@ -122,7 +122,7 @@ public class Menu {
 
                         case 2:
                         Usuario user = new Usuario();
-                        user.VisualizarCadastroDeUsuario(listaUsuarios);
+                        user.autenticarUsuario(listaUsuarios);
                         break;
 
                         case 3 :
