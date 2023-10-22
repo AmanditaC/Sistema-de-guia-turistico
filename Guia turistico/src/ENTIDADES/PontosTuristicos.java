@@ -35,8 +35,8 @@ public class PontosTuristicos{
     public String toString(){
         
         return "Cadastrado por: " + Nome_do_Cadastrante +
-               "Nome do Local: " + Nome_do_Local +
-               "Localizacao: " + Localizacao;
+             "\nNome do Local: " + Nome_do_Local +
+             "\nLocalizacao: " + Localizacao;
     }
 
     public boolean isEmpty() {
