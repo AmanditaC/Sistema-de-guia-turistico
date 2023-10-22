@@ -24,13 +24,9 @@ public class Estabelecimentos {
         System.out.println("Digite o número de contato:");
         acessar.setNumero_de_contato(ler.nextInt());
         
-        Estabelecimento cadastrarEstabelecimento = new Estabelecimento(null, null, null, false, 0);
-
-        ListaDeEstabelecimentos.add(cadastrarEstabelecimento);
+        ListaDeEstabelecimentos.add(acessar);
 
         System.out.println("Estabelecimento cadastrado com Sucesso!!!\n");
-
-        
 
     }
 

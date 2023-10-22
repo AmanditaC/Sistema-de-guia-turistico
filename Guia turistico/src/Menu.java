@@ -71,7 +71,7 @@ public class Menu {
                                             }
 
                                         case 2:
-                                            PontosTuristicos pontosTuristicos = new
+                                            PontosTuristicos pontosTuristicos
                                             break;
                                         case 3:
                                             // Voltar ao menu principal
