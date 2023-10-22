@@ -9,21 +9,21 @@ public class PontosTuristico {
     public void cadastrarPonto(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
         Scanner ler = new Scanner(System.in);
+        PontosTuristicos NovoCadastro = new PontosTuristicos(null, null,
+        null);
 
-        System.out.println("Informe quem está cadastrando o local: ");
-        String Nome_do_Cadastrante = ler.nextLine();
+        System.out.println("Informe quem esta cadastrando ");
+        NovoCadastro.setNome_do_Cadastrante(ler.nextLine());
+        System.out.println("Informe o nome do local ");
+        NovoCadastro.setNome_do_Local(ler.nextLine());
+        System.out.println("Agora informe onde fica esse local");
+        NovoCadastro.setLocalizacao(ler.nextLine());
 
-        System.out.println("Agora informe o nome do local: ");
-        String Nome_do_Local = ler.nextLine();
+        ListasDePontosTuristicos.add(NovoCadastro);
 
-        System.out.println("Em que lugar fica localizado: ");
-        String Localizacao = ler.nextLine();
+        System.out.println("Cadastro realizado com sucesso!!");
 
-        PontosTuristicos cadastraPontosTuristicos = new PontosTuristicos(Nome_do_Cadastrante, Nome_do_Local, Localizacao);
-
-        ListasDePontosTuristicos.add(cadastraPontosTuristicos);
-
-        
+        ler.close();
     }
 
     public void VisualizarCadastro(PontosTuristicos pontoTuristicoRecente){
