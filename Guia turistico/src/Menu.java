@@ -60,7 +60,7 @@ public class Menu {
 
                                             switch (resp) {
                                                 case 1:
-                                                    Estabelecimentos.EditarCadastroEstabelecimento(listaEstabelecimentos);
+                                                    estabelecimento.EditarCadastroEstabelecimento(listaEstabelecimentos);
                                                     break;
                                                 case 2:
                                                     // Voltar ao menu principal
