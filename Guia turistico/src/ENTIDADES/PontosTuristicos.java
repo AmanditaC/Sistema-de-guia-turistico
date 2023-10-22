@@ -38,4 +38,16 @@ public class PontosTuristicos{
                "Nome do Local: " + Nome_do_Local +
                "Localizacao: " + Localizacao;
     }
+
+    public boolean isEmpty() {
+        return false;
+    }
+
+    public int size() {
+        return 0;
+    }
+
+    public PontosTuristicos get(int i) {
+        return null;
+    }
 }
