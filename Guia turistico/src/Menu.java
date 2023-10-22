@@ -60,7 +60,7 @@ public class Menu {
 
                                             switch (resp) {
                                                 case 1:
-                                                    Estabelecimentos.EditarCadastroEstabelecimento(listaEstabelecimentos);
+                                                    estabelecimento.VisualizarCadastro(listaEstabelecimentos);
                                                     break;
                                                 case 2:
                                                     // Voltar ao menu principal
@@ -71,7 +71,7 @@ public class Menu {
                                             }
 
                                         case 2:
-                                            // Chame a função de cadastro de ponto turístico
+                                            PontosTuristicos pontosTuristicos = new
                                             break;
                                         case 3:
                                             // Voltar ao menu principal
@@ -90,6 +90,7 @@ public class Menu {
                                 break;
                         }
                 }
+
             } catch (InputMismatchException e) {
                 System.out.println("Erro ao ler entrada. Certifique-se de inserir os dados corretamente.");
                 entrada.nextLine(); // Limpe o buffer em caso de erro
