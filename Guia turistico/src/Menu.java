@@ -6,6 +6,7 @@ import ENTIDADES.Estabelecimento;
 import ENTIDADES.PontosTuristicos;
 import ENTIDADES.Usuarios;
 import GUIA.Estabelecimentos;
+import GUIA.PontosTuristico;
 import GUIA.Usuario;
 
 public class Menu {
@@ -73,7 +74,10 @@ public class Menu {
                                             }
 
                                         case 2:
-                                           
+                                           PontosTuristico pontosTuristico = new PontosTuristico();
+                                           pontosTuristico.cadastrarPonto(listaDePontosTuristicos);
+
+                                           pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
                                             break;
                                         case 3:
                                             // Voltar ao menu principal
@@ -94,6 +98,9 @@ public class Menu {
                         case 2 :
                          Estabelecimentos estabelecimento = new Estabelecimentos();
                          estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                         
+                         PontosTuristico pontosTuristico = new PontosTuristico();
+                         pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
                 }
             
             } catch (InputMismatchException e) {

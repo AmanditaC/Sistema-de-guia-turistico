@@ -2,6 +2,7 @@ package GUIA;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ENTIDADES.Estabelecimento;
 import ENTIDADES.PontosTuristicos;
 
 public class PontosTuristico {
@@ -23,16 +24,17 @@ public class PontosTuristico {
 
         System.out.println("Cadastro realizado com sucesso!!");
 
-        ler.close();
+
     }
 
-    public void VisualizarCadastro(PontosTuristicos ListasDePontosTuristicos){
+    public void VisualizarCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
-        if(ListasDePontosTuristicos != null){
-            System.out.println("Detalhe do recente cadastramento:");
-            System.out.println(ListasDePontosTuristicos.toString());
+        if (!ListasDePontosTuristicos.isEmpty()) {
+            System.out.println("Detalhes do cadastro recente: \n");
+            PontosTuristicos ListasDePontosTuristicosR = ListasDePontosTuristicos.get(ListasDePontosTuristicos.size() - 1);
+            System.out.println(ListasDePontosTuristicosR.toString());
         } else {
-            System.out.println("Não foi cadastrado nada recentemente");
+            System.out.println("Nenhum Ponto turistico cadastrado.\n");
         }
     }
 
