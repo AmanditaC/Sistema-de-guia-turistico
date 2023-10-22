@@ -82,7 +82,7 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
         for (Usuarios user : copiaDaLista) {
             if (user.getEmail().equals(Nv)){
                 cadastraLogin.remove(user);
-                System.out.println("O Ponto turistico foi removido!!");
+                System.out.println("O usuario foi removido com sucesso!!");
                 encontrado = true;
                 break; // Saia do loop depois de remover o ponto turistico
             }
@@ -90,6 +90,59 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
     
         if (!encontrado) {
             System.out.println("Não foi possível encontrar o ponto turistico mencionado!");
+        }
+    }
+
+    public void autenticarUsuario(ArrayList<Usuarios> cadastrarLogin) {
+        Scanner ler = new Scanner(System.in);
+
+        System.out.print("Informe seu Email: ");
+        String email = ler.nextLine();
+        System.out.print("Informe sua Senha: ");
+        String senha = ler.nextLine();
+
+        boolean autenticado = false;
+
+        for (Usuarios usuario : cadastrarLogin) {
+            if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
+                autenticado = true;
+                System.out.println("Login bem-sucedido!\n");
+
+                // Agora que o usuário está autenticado, você pode chamar outros métodos aqui.
+                // Por exemplo, você pode exibir um menu e permitir que o usuário escolha ações, como editar ou excluir o cadastro.
+                while (autenticado) {
+                    System.out.println("Escolha uma ação:");
+                    System.out.println("1. Visualizar cadastro");
+                    System.out.println("2. Editar cadastro");
+                    System.out.println("3. Excluir cadastro");
+                    System.out.println("4. Sair");
+
+                    int escolha = ler.nextInt();
+                    ler.nextLine(); // Limpar a quebra de linha após a leitura do número
+
+                    switch (escolha) {
+                        case 1:
+                            VisualizarCadastroDeUsuario(cadastrarLogin);
+                            break;
+                        case 2:
+                            EditarCadastroUsuario(cadastrarLogin);
+                            break;
+                        case 3:
+                            ExcluiCadastro(cadastrarLogin);
+                            break;
+                        case 4:
+                            autenticado = false; // Sair do loop de ações
+                            break;
+                        default:
+                            System.out.println("Escolha inválida. Tente novamente.");
+                    }
+                }
+                break; // Sair do loop de autenticação
+            }
+        }
+
+        if (!autenticado) {
+            System.out.println("Autenticação falhou. Verifique seu email e senha.\n");
         }
     }
 }

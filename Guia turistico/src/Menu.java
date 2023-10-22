@@ -119,10 +119,10 @@ public class Menu {
                                 break;
                         }
                         break;
-                        
+
                         case 2:
                         Usuario user = new Usuario();
-                        user.VisualizarCadastroDeUsuario(listaUsuarios);
+                        user.autenticarUsuario(listaUsuarios);
                         break;
 
                         case 3 :
@@ -144,8 +144,9 @@ public class Menu {
     public static void exibirMenu() {
         System.out.println("Menu Interativo\n");
         System.out.println("1.Cadastrar Usuário ");
-        System.out.println("2.Listar todos os pontos turisticos");
-        System.out.println("3. Sair");
+        System.out.println("2.Entrar");
+        System.out.println("3.Listar todos os pontos turisticos");
+        System.out.println("4. Sair");
         System.out.print("Escolha uma opção: ");
     }
 }
