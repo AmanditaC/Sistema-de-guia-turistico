@@ -73,9 +73,9 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
     public void ExcluiCadastro(ArrayList <Usuarios> cadastraLogin){
 
         Scanner ler = new Scanner(System.in);
-        System.out.println("Informe o Email do usuario que deseja remover : "); 
+        System.out.println("Informe o Email do usuario que deseja remover : ");
         String Nv = ler.nextLine();
-        boolean encontrado = false; 
+        boolean encontrado = false;
 
         ArrayList<Usuarios> copiaDaLista = new ArrayList<>(cadastraLogin);
     

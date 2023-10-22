@@ -125,11 +125,12 @@ public class Menu {
                         break;
 
                         case 3 :
-                         Estabelecimentos estabelecimento = new Estabelecimentos();
-                         estabelecimento.VisualizarCadastro(listaEstabelecimentos);
-                         
-                         PontosTuristico pontosTuristico = new PontosTuristico();
-                         pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
+                        Estabelecimentos estabelecimento = new Estabelecimentos();
+                        estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                        
+                        PontosTuristico pontosTuristico = new PontosTuristico();
+                        pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
+                        break;
                 }
             
             } catch (InputMismatchException e) {
