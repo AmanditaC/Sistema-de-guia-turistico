@@ -122,16 +122,16 @@ public class Menu {
 
                         case 2:
                         Usuario user = new Usuario();
-                        user.autenticarUsuario(listaUsuarios);
+                        user.VisualizarCadastroDeUsuario(listaUsuarios);
                         break;
 
                         case 3 :
-                        Estabelecimentos estabelecimento = new Estabelecimentos();
-                        estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                            Estabelecimentos estabelecimento = new Estabelecimentos();
+                            estabelecimento.VisualizarCadastro(listaEstabelecimentos);
                         
-                        PontosTuristico pontosTuristico = new PontosTuristico();
-                        pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
-                        break;
+                            PontosTuristico pontosTuristico = new PontosTuristico();
+                            pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
+                            break;
                 }
             
             } catch (InputMismatchException e) {
