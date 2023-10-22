@@ -33,6 +33,9 @@ public class Usuarios {
 
     // Métodos getters e setters
 
-    
-    
+    public String toString(){
+        
+        return "Email: " + email +
+            "\nsenha: " + senha;
+    }
 }
