@@ -19,8 +19,17 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
         
         System.out.println("Cadastro realizado com sucesso!\n");
 
-      
+    }
 
+    public void VisualizarCadastroDeUsuario(ArrayList<Usuarios> cadastrarLogin){
+
+        if (!cadastrarLogin.isEmpty()) {
+            System.out.println("Detalhes do cadastro recente: \n");
+            Usuarios cadastrarLoginR = cadastrarLogin.get(cadastrarLogin.size() - 1);
+            System.out.println(cadastrarLoginR.toString());
+        } else {
+            System.out.println("Nenhum usuario cadastrado.\n");
+        }
     }
 
     public void EditarCadastroUsuario(ArrayList <Usuarios> UsuarioNovo) {
