@@ -82,17 +82,29 @@ public class Estabelecimentos {
     
     
 
-    public static void RemoverCadastro(ArrayList <Estabelecimento> ListaDeEstabelecimentos, String NomeRemover){
-
-        ArrayList <Estabelecimento> copiaDaLista = new ArrayList<>();
-
-        for(Estabelecimento Lojas : copiaDaLista){
-
-            if(Lojas.getNome_do_estabelecimento().equals(NomeRemover)){
+    public static void RemoverCadastro(ArrayList<Estabelecimento> ListaDeEstabelecimentos) {
+       
+        Scanner ler = new Scanner(System.in);
+        System.out.println("Informe o nome do estabelecimento que deseja remover : "); 
+        String RemoverEstabelecimento = ler.nextLine();
+        boolean encontrado = false;
+        
+        // Crie uma cópia da lista para evitar a modificação durante a iteração
+        ArrayList<Estabelecimento> copiaDaLista = new ArrayList<>(ListaDeEstabelecimentos);
+    
+        for (Estabelecimento Lojas : copiaDaLista) {
+            if (Lojas.getNome_do_estabelecimento().equals(RemoverEstabelecimento)) {
                 ListaDeEstabelecimentos.remove(Lojas);
                 System.out.println("O estabelecimento foi removido!!");
+                encontrado = true;
+                break; // Saia do loop depois de remover o estabelecimento
             }
         }
-        System.out.println("Nao foi possivel encontrar o estamelecimento mencionado!");
+    
+        if (!encontrado) {
+            System.out.println("Não foi possível encontrar o estabelecimento mencionado!");
+        }
     }
+    
+    
 }

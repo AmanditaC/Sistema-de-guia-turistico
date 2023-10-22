@@ -38,16 +38,16 @@ public class PontosTuristico {
         }
     }
 
-    public void EditarCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos, String NomeEditar){
+    public void EditarCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
         Scanner ler = new Scanner(System.in);
     
         System.out.println("Edição de Estabelecimento");
-        System.out.print("Informe o nome do estabelecimento que deseja editar: ");
+        System.out.print("Informe o nome do Ponto turistico que deseja editar: ");
         String nomeDoPonto = ler.nextLine();
     
         // Procurar o estabelecimento na lista com base no nome
-        PontosTuristico pontosParaEditar = null;
+        PontosTuristicos pontosParaEditar = null;
         int indiceDoPonto = -1; // Para armazenar o índice do estabelecimento na lista
         for (int i = 0; i < ListasDePontosTuristicos.size(); i++) {
             PontosTuristicos pontos = ListasDePontosTuristicos.get(i);
@@ -59,7 +59,25 @@ public class PontosTuristico {
             }
         }
 
-        System.out.println("Não foi possível localizar o Lugar!!");
+        if (pontosParaEditar != null){
+            System.out.println("Ponto turistico encontrado ! \n Você pode editar as informações a seguir:");
+            System.out.println("Informe o nome do novo cadastrante :");
+            pontosParaEditar.setNome_do_Cadastrante(ler.nextLine());
+            System.out.println("Informe o novo nome do local : ");
+            pontosParaEditar.setNome_do_Local(ler.nextLine());
+            System.out.println("Agora informe onde fica o novo local: ");
+            pontosParaEditar.setLocalizacao(ler.nextLine());
+
+            PontosTuristico.set(indiceDoPonto,pontosParaEditar);
+
+            System.out.println("Cadastro do Ponto turistico atualizado com sucesso!\"");
+            
+        }else{
+            System.out.println("Ponto turistico não encontrado. Verifique o nome do local e tente novamente.");
+        }
+    }
+
+    private static void set(int indiceDoPonto, PontosTuristicos pontosParaEditar) {
     }
 
     public void RemoverCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos, String NomeRemover){

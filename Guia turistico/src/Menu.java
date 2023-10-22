@@ -55,7 +55,8 @@ public class Menu {
                                             estabelecimento.cadastrarEstabelecimento(listaEstabelecimentos);
                                             System.out.println("Deseja editar ou voltar ao menu principal ? ");
                                             System.out.println("1.Editar cadastro");
-                                            System.out.println("2.Volta ao menu principal");
+                                            System.out.println("2.Excluir Estabelecimento");
+                                            System.out.println("3.Volta ao menu principal");
                                             entrada.nextLine();
                                             int resp = entrada.nextInt();
 
@@ -63,7 +64,35 @@ public class Menu {
                                                 case 1:
                                                     estabelecimento.EditarCadastroEstabelecimento(listaEstabelecimentos);
 
-                                                     estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                                                    estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                                                    break;
+                                                case 2:
+                                                    estabelecimento.RemoverCadastro(listaEstabelecimentos);
+
+                                                    estabelecimento.VisualizarCadastro(listaEstabelecimentos);
+                                                    break;
+                                                case 3:
+                                                    // Voltar ao menu principal
+                                                    break;
+                                                default:
+                                                    System.out.println("Opção inválida. Tente novamente.");
+                                                    break;
+                                            }
+                                            break;
+                                        case 2:
+                                            PontosTuristico pontosTuristico = new PontosTuristico();
+                                            pontosTuristico.cadastrarPonto(listaDePontosTuristicos);
+                                            System.out.println("Deseja editar ou voltar ao menu principal ? ");
+                                            System.out.println("1.Editar cadastro");
+                                            System.out.println("2.Volta ao menu principal");
+                                            entrada.nextLine();
+                                            int rap = entrada.nextInt();
+
+                                            switch (rap) {
+                                                case 1:
+                                                    pontosTuristico.EditarCadastro(listaDePontosTuristicos);
+
+                                                    pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
                                                     break;
                                                 case 2:
                                                     // Voltar ao menu principal
@@ -72,12 +101,7 @@ public class Menu {
                                                     System.out.println("Opção inválida. Tente novamente.");
                                                     break;
                                             }
-
-                                        case 2:
-                                           PontosTuristico pontosTuristico = new PontosTuristico();
-                                           pontosTuristico.cadastrarPonto(listaDePontosTuristicos);
-
-                                           pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
+                                           
                                             break;
                                         case 3:
                                             // Voltar ao menu principal
