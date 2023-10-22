@@ -85,7 +85,7 @@ public class PontosTuristico {
         Scanner ler = new Scanner(System.in);
         System.out.println("Informe o nome do local do Ponto turistico que deseja remover : "); 
         String RemoverPonto = ler.nextLine();
-        boolean encontrado = false;
+        boolean encontrado = false; 
 
         ArrayList<PontosTuristicos> copiaDaLista = new ArrayList<>(ListasDePontosTuristicos);
     

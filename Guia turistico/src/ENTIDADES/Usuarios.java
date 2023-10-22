@@ -12,22 +12,28 @@ public class Usuarios {
     
     }
 
-    // Métodos getters e setters
 
     public String getEmail() {
         return email;
     }
 
+
     public void setEmail(String email) {
-        this.email = email;
+        email = email;
     }
+
 
     public String getSenha() {
         return senha;
     }
 
+
     public void setSenha(String senha) {
-        this.senha = senha;
+        senha = senha;
     }
+
+    // Métodos getters e setters
+
+    
     
 }
