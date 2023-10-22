@@ -19,11 +19,11 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
         
         System.out.println("Cadastro realizado com sucesso!\n");
 
-        ler.close();
+      
 
     }
 
-    public void editarCadastro(ArrayList <Usuarios> UsuarioNovo) {
+    public void EditarCadastroUsuario(ArrayList <Usuarios> UsuarioNovo) {
         Scanner ler = new Scanner(System.in);
 
         System.out.println("Cadastro de Usuário");
@@ -40,11 +40,11 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
 
     
         System.out.println("Editando Cadastro de Usuário...");
-        editarCadastro(UsuarioNovo);
+        EditarCadastroUsuario(UsuarioNovo);
 
         System.out.println("Cadastro de Usuário atualizado com sucesso!");
 
-        ler.close();
+    
     }
 
     public void ExcluiCadastro(ArrayList <Usuarios> cadastraLogin){

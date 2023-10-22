@@ -23,7 +23,7 @@ public class PontosTuristico {
 
         ListasDePontosTuristicos.add(cadastraPontosTuristicos);
 
-        ler.close();
+        
     }
 
     public void VisualizarCadastro(PontosTuristicos pontoTuristicoRecente){

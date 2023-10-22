@@ -13,7 +13,7 @@ public class Menu {
         Scanner entrada = new Scanner(System.in);
         ArrayList<Usuarios> listaUsuarios = new ArrayList<>();
         ArrayList<PontosTuristicos> listaDePontosTuristicos = new ArrayList<>();
-        ArrayList<Estabelecimento> listaEstabelecimento = new ArrayList<>();
+        ArrayList<Estabelecimento> listaEstabelecimentos = new ArrayList<>();
 
         while (true) {
             exibirMenu();
@@ -51,7 +51,7 @@ public class Menu {
                                     switch (opcaoCadastro) {
                                         case 1:
                                             Estabelecimentos estabelecimento = new Estabelecimentos();
-                                            estabelecimento.cadastrarEstabelecimento(listaEstabelecimento);
+                                            estabelecimento.cadastrarEstabelecimento(listaEstabelecimentos);
                                             System.out.println("Deseja editar ou voltar ao menu principal ? ");
                                             System.out.println("1.Editar cadastro");
                                             System.out.println("2.Volta ao menu principal");
@@ -60,7 +60,7 @@ public class Menu {
 
                                             switch (resp) {
                                                 case 1:
-                                                    //estabelecimento.editarEstabelecimento(listaEstabelecimento);
+                                                    Estabelecimentos.EditarCadastroEstabelecimento(listaEstabelecimentos);
                                                     break;
                                                 case 2:
                                                     // Voltar ao menu principal

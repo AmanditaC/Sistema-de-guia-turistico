@@ -30,37 +30,60 @@ public class Estabelecimentos {
 
         System.out.println("Estabelecimento cadastrado com Sucesso!!!\n");
 
-        ler.close();
+        
 
     }
 
-    public void VisualizarCadastro(Estabelecimentos estabelecimentoRecente){
-
-        if(estabelecimentoRecente != null){
+    public void VisualizarCadastro(ArrayList<Estabelecimento> listaDeEstabelecimentos) {
+        if (!listaDeEstabelecimentos.isEmpty()) {
             System.out.println("Detalhes do cadastro recente: \n");
+            Estabelecimento estabelecimentoRecente = listaDeEstabelecimentos.get(listaDeEstabelecimentos.size() - 1);
             System.out.println(estabelecimentoRecente.toString());
-        }else{
-            System.out.println("Nao foi cadastrado nenhum estabelecimento\n");
+        } else {
+            System.out.println("Nenhum estabelecimento cadastrado.\n");
         }
     }
 
-    public static void EditarCadastro(ArrayList <Estabelecimento> ListaDeEstabelecimentos, String NomeEditar, String novaLocalizacao, String novoTipo, boolean novaFazer_reserva, int novoNumero_de_contato){
+    public static void EditarCadastroEstabelecimento(ArrayList<Estabelecimento> listaDeEstabelecimentos) {
+        Scanner ler = new Scanner(System.in);
+    
+        System.out.println("Edição de Estabelecimento");
+        System.out.print("Informe o nome do estabelecimento que deseja editar: ");
+        String nomeEstabelecimento = ler.nextLine();
+    
+        // Procurar o estabelecimento na lista com base no nome
+        Estabelecimento estabelecimentoParaEditar = null;
+        int indiceDoEstabelecimento = -1; // Para armazenar o índice do estabelecimento na lista
+        for (int i = 0; i < listaDeEstabelecimentos.size(); i++) {
+            Estabelecimento estabelecimento = listaDeEstabelecimentos.get(i);
+            if (estabelecimento != null && estabelecimento.getNome_do_estabelecimento() != null && estabelecimento.getNome_do_estabelecimento().equals(nomeEstabelecimento)) {
 
-        for(Estabelecimento negocios : ListaDeEstabelecimentos){
-    
-            if(negocios.getNome_do_estabelecimento().equals(NomeEditar)){
-                
-                negocios.setLocalizacao(novaLocalizacao);
-                negocios.setTipo(novoTipo);
-                negocios.setFazer_reseva(novaFazer_reserva);
-                negocios.setNumero_de_contato(novoNumero_de_contato);
-    
-                System.out.println("Estabelecimento editado com sucesso!!\n");
-                return; // Encerrar o método após editar o estabelecimento
+                estabelecimentoParaEditar = estabelecimento;
+                indiceDoEstabelecimento = i;
+                break;
             }
         }
-        System.out.println("Não foi possível encontrar o estabelecimento mencionado!");
+    
+        if (estabelecimentoParaEditar != null) {
+            System.out.println("Estabelecimento encontrado. Você pode editar as informações a seguir:");
+            System.out.print("Digite a nova localização: ");
+            estabelecimentoParaEditar.setLocalizacao(ler.nextLine());
+            System.out.print("Digite o novo tipo de estabelecimento: ");
+            estabelecimentoParaEditar.setTipo(ler.nextLine());
+            System.out.print("É possível fazer reserva? (Sim/Não): ");
+            estabelecimentoParaEditar.setFazer_reseva(ler.nextLine().equalsIgnoreCase("Sim"));
+            System.out.print("Digite o novo número de contato: ");
+            estabelecimentoParaEditar.setNumero_de_contato(ler.nextInt());
+    
+            // Atualizar o estabelecimento na lista
+            listaDeEstabelecimentos.set(indiceDoEstabelecimento, estabelecimentoParaEditar);
+    
+            System.out.println("Cadastro de estabelecimento atualizado com sucesso!");
+        } else {
+            System.out.println("Estabelecimento não encontrado. Verifique o nome e tente novamente.");
+        }
     }
+    
     
 
     public static void RemoverCadastro(ArrayList <Estabelecimento> ListaDeEstabelecimentos, String NomeRemover){
