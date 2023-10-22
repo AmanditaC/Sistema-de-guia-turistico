@@ -1,6 +1,5 @@
 package ENTIDADES;
 
-
 public class Usuarios {
     private String email;
     private String senha;
