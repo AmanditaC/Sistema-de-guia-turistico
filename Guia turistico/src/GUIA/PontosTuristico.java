@@ -26,11 +26,11 @@ public class PontosTuristico {
         ler.close();
     }
 
-    public void VisualizarCadastro(PontosTuristicos pontoTuristicoRecente){
+    public void VisualizarCadastro(PontosTuristicos ListasDePontosTuristicos){
 
-        if(pontoTuristicoRecente != null){
+        if(ListasDePontosTuristicos != null){
             System.out.println("Detalhe do recente cadastramento:");
-            System.out.println(pontoTuristicoRecente.toString());
+            System.out.println(ListasDePontosTuristicos.toString());
         } else {
             System.out.println("Não foi cadastrado nada recentemente");
         }
