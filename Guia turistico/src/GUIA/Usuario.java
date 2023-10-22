@@ -2,6 +2,7 @@ package GUIA;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ENTIDADES.PontosTuristicos;
 import ENTIDADES.Usuarios;
 
 public class Usuario{
@@ -59,7 +60,7 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
             System.out.println("Informe a nova senha : ");
             usuarioParaEditar.setSenha(ler.nextLine());
             
-            Usuario.set(indiceDoUsuario, usuarioParaEditar);
+            cadastrarLogin.set(indiceDoUsuario, usuarioParaEditar);
 
             System.out.println("Cadastro do Usuario atualizado com sucesso!\"");
             
@@ -69,31 +70,27 @@ public void cadastrarLogin(ArrayList <Usuarios> cadastrarLogin ) {
     
     }
 
+
     public void ExcluiCadastro(ArrayList <Usuarios> cadastraLogin){
-    Scanner ler = new Scanner(System.in);
-    System.out.print("Informe o Email: ");
-    String email = ler.nextLine();
-    System.out.print("Informe a Senha: ");
-    String senha = ler.nextLine();
 
-    // Verificar se o login e a senha correspondem a um usuário na lista
-    Usuarios usuarioParaExcluir = null;
+        Scanner ler = new Scanner(System.in);
+        System.out.println("Informe o Email do usuario que deseja remover : "); 
+        String Nv = ler.nextLine();
+        boolean encontrado = false; 
 
-    for (Usuarios usuario : cadastraLogin) {
-        if (usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)) {
-            usuarioParaExcluir = usuario;
-            break; // Encontrou o usuário, podemos sair do loop
+        ArrayList<Usuarios> copiaDaLista = new ArrayList<>(cadastraLogin);
+    
+        for (Usuarios user : copiaDaLista) {
+            if (user.getEmail().equals(Nv)){
+                cadastraLogin.remove(user);
+                System.out.println("O Ponto turistico foi removido!!");
+                encontrado = true;
+                break; // Saia do loop depois de remover o ponto turistico
+            }
         }
-    }
-
-    if (usuarioParaExcluir != null) {
-        // Remover o usuário da lista
-        cadastraLogin.remove(usuarioParaExcluir);
-        System.out.println("Cadastro de Usuário excluído com sucesso!");
-    } else {
-        System.out.println("Credenciais incorretas. Não foi possível excluir o cadastro.");
-    }
-
-    ler.close();
+    
+        if (!encontrado) {
+            System.out.println("Não foi possível encontrar o ponto turistico mencionado!");
+        }
     }
 }

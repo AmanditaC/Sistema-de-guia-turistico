@@ -68,7 +68,7 @@ public class PontosTuristico {
             System.out.println("Agora informe onde fica o novo local: ");
             pontosParaEditar.setLocalizacao(ler.nextLine());
 
-            PontosTuristico.set(indiceDoPonto,pontosParaEditar);
+            ListasDePontosTuristicos.set(indiceDoPonto,pontosParaEditar);
 
             System.out.println("Cadastro do Ponto turistico atualizado com sucesso!\"");
             
@@ -77,8 +77,6 @@ public class PontosTuristico {
         }
     }
 
-    private static void set(int indiceDoPonto, PontosTuristicos pontosParaEditar) {
-    }
 
     public void RemoverCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
