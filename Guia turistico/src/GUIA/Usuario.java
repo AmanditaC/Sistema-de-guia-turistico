@@ -2,7 +2,6 @@ package GUIA;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ENTIDADES.PontosTuristicos;
 import ENTIDADES.Usuarios;
 
 public class Usuario{

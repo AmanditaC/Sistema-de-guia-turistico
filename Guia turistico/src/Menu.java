@@ -137,7 +137,7 @@ public class Menu {
                          PontosTuristico pontosTuristico = new PontosTuristico();
                          pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
                 }
-            
+                
             } catch (InputMismatchException e) {
                 System.out.println("Erro ao ler entrada. Certifique-se de inserir os dados corretamente.");
                 entrada.nextLine(); // Limpe o buffer em caso de erro
