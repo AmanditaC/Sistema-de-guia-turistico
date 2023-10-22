@@ -38,11 +38,22 @@ public class PontosTuristico {
 
     public void EditarCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos, String NomeEditar){
 
-        for(PontosTuristicos Lugar : ListasDePontosTuristicos){
+        Scanner ler = new Scanner(System.in);
+    
+        System.out.println("Edição de Estabelecimento");
+        System.out.print("Informe o nome do estabelecimento que deseja editar: ");
+        String nomeDoPonto = ler.nextLine();
+    
+        // Procurar o estabelecimento na lista com base no nome
+        PontosTuristico pontosParaEditar = null;
+        int indiceDoPonto = -1; // Para armazenar o índice do estabelecimento na lista
+        for (int i = 0; i < ListasDePontosTuristicos.size(); i++) {
+            PontosTuristicos pontos = ListasDePontosTuristicos.get(i);
+            if (pontos != null && pontos.getNome_do_Local() != null && pontos.getNome_do_Local().equals(nomeDoPonto)) {
 
-            if(Lugar.getNome_do_Local().equals(NomeEditar)){
-                Lugar.getLocalizacao();
-                System.out.println("Ponto editado com sucesso!!");
+                pontosParaEditar = pontos;
+                indiceDoPonto = i;
+                break;
             }
         }
 
