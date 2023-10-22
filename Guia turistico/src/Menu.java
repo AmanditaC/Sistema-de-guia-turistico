@@ -84,7 +84,8 @@ public class Menu {
                                             pontosTuristico.cadastrarPonto(listaDePontosTuristicos);
                                             System.out.println("Deseja editar ou voltar ao menu principal ? ");
                                             System.out.println("1.Editar cadastro");
-                                            System.out.println("2.Volta ao menu principal");
+                                            System.out.println("2. Excluir Ponto turistico");
+                                            System.out.println("3.Volta ao menu principal");
                                             entrada.nextLine();
                                             int rap = entrada.nextInt();
 
@@ -95,6 +96,10 @@ public class Menu {
                                                     pontosTuristico.VisualizarCadastro(listaDePontosTuristicos);
                                                     break;
                                                 case 2:
+                                                    pontosTuristico.RemoverCadastro(listaDePontosTuristicos);
+
+                                                break;
+                                                case 3:
                                                     // Voltar ao menu principal
                                                     break;
                                                 default:

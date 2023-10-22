@@ -80,16 +80,26 @@ public class PontosTuristico {
     private static void set(int indiceDoPonto, PontosTuristicos pontosParaEditar) {
     }
 
-    public void RemoverCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos, String NomeRemover){
+    public void RemoverCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
-        for(PontosTuristicos Lugar : ListasDePontosTuristicos){
-            
-            if(Lugar.getNome_do_Local().equals(NomeRemover)){
-                ListasDePontosTuristicos.remove(Lugar);
-                System.out.println("O lugar foi removido com sucesso !!!!");
-                return; // Para sair do loop após a remoção bem-sucedida
+        Scanner ler = new Scanner(System.in);
+        System.out.println("Informe o nome do local do Ponto turistico que deseja remover : "); 
+        String RemoverPonto = ler.nextLine();
+        boolean encontrado = false;
+
+        ArrayList<PontosTuristicos> copiaDaLista = new ArrayList<>(ListasDePontosTuristicos);
+    
+        for (PontosTuristicos Lojas : copiaDaLista) {
+            if (Lojas.getNome_do_Local().equals(RemoverPonto)) {
+                ListasDePontosTuristicos.remove(Lojas);
+                System.out.println("O Ponto turistico foi removido!!");
+                encontrado = true;
+                break; // Saia do loop depois de remover o ponto turistico
             }
         }
-        System.out.println("O lugar não foi encontrado!");
+    
+        if (!encontrado) {
+            System.out.println("Não foi possível encontrar o ponto turistico mencionado!");
+        }
     }
 }
