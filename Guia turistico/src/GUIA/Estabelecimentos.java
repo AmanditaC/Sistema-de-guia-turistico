@@ -28,6 +28,8 @@ public class Estabelecimentos {
 
         System.out.println("Estabelecimento cadastrado com Sucesso!!!\n");
 
+        ler.close();
+
     }
 
     public void VisualizarCadastro(ArrayList<Estabelecimento> listaDeEstabelecimentos) {
@@ -78,14 +80,16 @@ public class Estabelecimentos {
         } else {
             System.out.println("Estabelecimento não encontrado. Verifique o nome e tente novamente.");
         }
+
+        ler.close();
     }
     
     
 
     public static void RemoverCadastro(ArrayList<Estabelecimento> ListaDeEstabelecimentos) {
-       
+    
         Scanner ler = new Scanner(System.in);
-        System.out.println("Informe o nome do estabelecimento que deseja remover : "); 
+        System.out.println("Informe o nome do estabelecimento que deseja remover : ");
         String RemoverEstabelecimento = ler.nextLine();
         boolean encontrado = false;
         
@@ -104,6 +108,8 @@ public class Estabelecimentos {
         if (!encontrado) {
             System.out.println("Não foi possível encontrar o estabelecimento mencionado!");
         }
+
+        ler.close();
     }
     
     
