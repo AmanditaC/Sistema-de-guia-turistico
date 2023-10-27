@@ -2,7 +2,6 @@ package GUIA;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ENTIDADES.Estabelecimento;
 import ENTIDADES.PontosTuristicos;
 
 public class PontosTuristico {
@@ -24,7 +23,7 @@ public class PontosTuristico {
 
         System.out.println("Cadastro realizado com sucesso!!");
 
-
+        ler.close();
     }
 
     public void VisualizarCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
@@ -75,15 +74,17 @@ public class PontosTuristico {
         }else{
             System.out.println("Ponto turistico não encontrado. Verifique o nome do local e tente novamente.");
         }
+
+        ler.close();
     }
 
 
     public void RemoverCadastro(ArrayList<PontosTuristicos> ListasDePontosTuristicos){
 
         Scanner ler = new Scanner(System.in);
-        System.out.println("Informe o nome do local do Ponto turistico que deseja remover : "); 
+        System.out.println("Informe o nome do local do Ponto turistico que deseja remover : ");
         String RemoverPonto = ler.nextLine();
-        boolean encontrado = false; 
+        boolean encontrado = false;
 
         ArrayList<PontosTuristicos> copiaDaLista = new ArrayList<>(ListasDePontosTuristicos);
     
@@ -99,5 +100,7 @@ public class PontosTuristico {
         if (!encontrado) {
             System.out.println("Não foi possível encontrar o ponto turistico mencionado!");
         }
+
+        ler.close();
     }
 }
